@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6EFE2">
+<title>کارولینا ریپر؛ از اصلاح نژاد تا تولید یکی از تندترین فلفل‌های جهان</title>
+
+<!-- فونت Vazirmatn -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css">
+
+<!-- Three.js و GLBها هنگام نزدیک‌شدن به اسلاید ۳ بارگذاری می‌شوند (importmap در زمان اجرا ساخته می‌شود) -->
+<style>
+:root{
+  --cream:#F6EFE2; --ink:#1E1B18; --ink2:#554C42;
+  --red:#C9271D; --orange:#E8731C; --green:#3F7D3B;
+  --pad:clamp(20px,5vw,84px);
+  --pady:clamp(46px,7vh,78px);
+  font-family:'Vazirmatn','Vazir','Noto Sans Arabic','Segoe UI',Tahoma,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--ink);
+  -webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{font-family:inherit}
+img{display:block;-webkit-user-drag:none;user-select:none}
+
+/* ───────── اسکرول‌کانتینر ───────── */
+.deck{height:100vh;height:100dvh;overflow-y:auto;overflow-x:hidden;
+  scroll-snap-type:y mandatory;overscroll-behavior:contain;outline:none;
+  scrollbar-width:none;-ms-overflow-style:none}
+.deck::-webkit-scrollbar{display:none}
+
+/* ───────── اسلاید ───────── */
+.slide{
+  --bg:var(--cream);--fg:var(--ink);--fg2:var(--ink2);
+  --accent:var(--red);--accent2:var(--orange);--accent3:var(--green);
+  --tile:rgba(30,27,24,.05);
+  --fs:clamp(15px,4.2vw,18px);
+  position:relative;height:100vh;height:100dvh;
+  scroll-snap-align:start;scroll-snap-stop:always;
+  overflow:hidden;background:var(--bg);color:var(--fg)}
+.slide.dark{
+  --bg:#1B1916;--fg:#F4ECDF;--fg2:#CBC1B0;
+  --accent:#F0624E;--accent2:#F29A4A;--accent3:#86C474;
+  --tile:rgba(255,255,255,.07)}
+#s1::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60vmax 50vmax at 8% 0%,rgba(232,115,28,.13),transparent 60%),
+             radial-gradient(40vmax 36vmax at 100% 100%,rgba(63,125,59,.10),transparent 60%)}
+
+.body{
+  position:relative;height:100%;font-size:var(--fs);
+  padding:var(--pady) max(var(--pad),env(safe-area-inset-right)) 30px max(var(--pad),env(safe-area-inset-left));
+  display:flex;flex-direction:column;gap:24px;
+  overflow-y:auto;overflow-x:hidden;overscroll-behavior:auto;
+  scrollbar-width:thin;scrollbar-color:rgba(128,118,104,.45) transparent}
+.body>:first-child{margin-top:auto}
+.body>:last-child{margin-bottom:auto}
+#s1 .body{padding-bottom:60px}
+
+/* ───────── متن ───────── */
+.text{min-width:0}
+.text h1.kicker{font-size:.8em;font-weight:700;color:var(--accent3);line-height:1.7;margin-bottom:1em}
+.text h2{font-size:1.7em;font-weight:800;line-height:1.45;margin-bottom:.75em;text-wrap:balance}
+.text h2::before{content:"";display:block;width:2.4em;height:3px;border-radius:3px;margin-bottom:.65em;
+  background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.text p{font-size:1em;line-height:1.85;margin-bottom:.75em;color:var(--fg);text-wrap:pretty}
+.text p.lead{font-weight:500}
+.text p.intro{margin-bottom:.35em}
+.text ul{list-style:none;margin:0 0 .85em}
+.text li{position:relative;padding-inline-start:1.35em;line-height:1.9;margin-bottom:.35em}
+.text li::before{content:"";position:absolute;inset-inline-start:.1em;top:.88em;width:.42em;height:.42em;
+  border-radius:50%;background:var(--accent2)}
+.text li strong{font-weight:700;color:var(--accent)}
+.text p.note{font-size:.92em;color:var(--fg2);border-inline-start:3px solid var(--accent3);
+  padding-inline-start:.9em;line-height:1.85}
+.text p:last-child{margin-bottom:0}
+.en{unicode-bidi:isolate;direction:ltr;font-family:'Vazirmatn','Segoe UI',system-ui,sans-serif}
+.sp{font-style:italic}
+
+/* ───────── رسانه و تصویر ───────── */
+.media{display:grid;gap:10px;justify-items:center;min-width:0}
+.cell{position:relative;min-width:0;min-height:0;width:min(100%,calc(var(--r,1.3333)*46vh))}
+.tile{position:relative;margin:0;width:100%;aspect-ratio:var(--r,1.3333);border-radius:12px;overflow:hidden;
+  background:var(--tile);box-shadow:0 1px 2px rgba(0,0,0,.10),0 14px 30px -18px rgba(0,0,0,.45)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.tile.broken::after{content:"تصویر بارگذاری نشد";position:absolute;inset:0;display:grid;place-items:center;
+  font-size:.8em;color:var(--fg2)}
+
+/* ───────── اسلاید ۳ ───────── */
+.stage{position:relative;display:grid;grid-template-rows:auto 58px auto;min-width:0}
+.parents{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:4px;min-height:0}
+.plus{align-self:center;font-size:2.4em;font-weight:300;line-height:1;color:var(--accent);padding-bottom:1.1em}
+.model{margin:0;display:flex;flex-direction:column;min-width:0;min-height:0}
+.gl{position:relative;flex:none;height:min(32vh,210px);
+  background:radial-gradient(closest-side at 50% 52%,rgba(232,115,28,.17),rgba(232,115,28,0) 100%)}
+.gl canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+.gl canvas:active{cursor:grabbing}
+.gl-msg{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;font-size:.8em;color:var(--fg2);text-align:center;padding:8px}
+.gl[data-state="loading"] .gl-msg::before{content:"";width:22px;height:22px;border-radius:50%;
+  border:2px solid rgba(201,39,29,.2);border-top-color:var(--accent);animation:spin .8s linear infinite}
+.gl[data-state="error"] .gl-msg::after{content:"مدل سه‌بعدی بارگذاری نشد؛ اتصال اینترنت را بررسی کنید."}
+.gl[data-state="ready"] .gl-msg{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.model figcaption{text-align:center;line-height:1.35;padding-top:.15em}
+.model figcaption b{display:block;font-weight:700;font-size:.95em}
+.model figcaption small{display:block;direction:ltr;color:var(--fg2);font-size:.78em}
+.child{display:grid;grid-template-columns:1fr;gap:16px;min-height:0}
+.child .model.big .gl{height:min(40vh,270px)}
+.child .model.big figcaption b{color:var(--accent)}
+.breeder{display:flex;flex-direction:column;gap:8px;min-height:0;min-width:0;
+  border-top:3px solid var(--accent3);padding-top:10px}
+.breeder .media{display:grid}
+.breeder .cell{width:min(100%,calc(var(--r,.8)*34vh))}
+.breeder p{font-size:.8em;line-height:1.7;color:var(--fg2)}
+.arrows{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;color:var(--accent)}
+.arrows path.ln{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:4 7}
+
+/* ───────── شماره اسلاید و راهنما ───────── */
+.num{position:fixed;z-index:5;top:max(14px,env(safe-area-inset-top));left:max(18px,env(safe-area-inset-left));
+  direction:ltr;font-size:12px;font-weight:600;letter-spacing:.14em;font-variant-numeric:tabular-nums;
+  color:rgba(30,27,24,.55);pointer-events:none;transition:color .4s ease}
+body[data-theme="dark"] .num{color:rgba(244,236,223,.7)}
+.num span{display:inline-block;animation:numIn .35s ease both}
+@keyframes numIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.hint{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  text-align:center;font-size:12.5px;color:var(--fg2);pointer-events:none;
+  padding:26px 0 max(14px,calc(env(safe-area-inset-bottom) + 8px));
+  background:linear-gradient(to top,var(--bg) 50%,transparent)}
+.hint .arr{display:inline-block;animation:nudge 1.9s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(1px)}50%{transform:translateY(-4px)}}
+
+/* ───────── انیمیشن ورود ───────── */
+.js .rv{opacity:0;transform:translateY(14px);
+  transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);
+  transition-delay:calc(var(--i,0)*70ms)}
+.js .rv-f{opacity:0;transition:opacity .8s ease;transition-delay:calc(var(--i,0)*70ms)}
+.js .slide.in .rv,.js .slide.in .rv-f{opacity:1;transform:none}
+.js .arrows{opacity:0;transition:opacity .8s ease .5s}
+.js .slide.in .arrows{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .js .rv,.js .rv-f,.js .arrows{transition:none;opacity:1;transform:none}
+  .hint .arr,.num span{animation:none}
+}
+
+/* ───────── چیدمان عریض (دسکتاپ / تبلت افقی) ───────── */
+@media (min-width:900px) and (min-height:560px){
+  .body{display:grid;grid-template-columns:var(--cols,minmax(0,1fr) minmax(0,1fr));
+    grid-template-rows:minmax(0,1fr);align-items:center;column-gap:clamp(28px,4.2vw,76px);
+    padding-top:var(--pady);padding-bottom:var(--pady)}
+  #s1 .body{padding-bottom:64px}
+  .body>:first-child,.body>:last-child{margin:0}
+  .text{align-self:center}
+  .media,.stage{align-self:stretch;height:100%;min-height:0}
+  .media{display:block;position:relative}
+  .cell{position:absolute;inset:auto;left:0;top:0;width:100%;height:100%}
+  .tile{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto}
+
+  .stage{grid-template-rows:minmax(0,1.05fr) clamp(44px,8vh,100px) minmax(0,1.25fr)}
+  .parents{height:100%}
+  .gl,.child .model.big .gl{flex:1 1 auto;height:auto;min-height:0}
+  .child{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1fr);gap:12px;align-items:stretch}
+  .child .model{grid-column:2}
+  .child .breeder{grid-column:3;align-self:center;max-height:100%}
+  .breeder .media{height:min(24vh,220px);flex:none;align-self:auto}
+}
+
+/* ═════════ ارتقای طراحی ═════════ */
+[hidden]{display:none!important}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(55vmax 45vmax at var(--gx,100%) var(--gy,0%),color-mix(in srgb,var(--accent2) 12%,transparent),transparent 62%)}
+.slide:nth-of-type(even){--gx:0%;--gy:100%}
+.tile{border-radius:16px;outline:1px solid rgba(128,118,104,.16)}
+.prog{position:fixed;z-index:5;top:0;left:0;right:0;height:2px;transform-origin:100% 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--orange),var(--red));pointer-events:none}
+.cards{display:grid;gap:.55em;margin:0 0 .9em}
+.card{padding:.55em .95em;border-radius:12px;background:var(--tile);border-inline-start:3px solid var(--accent2);line-height:1.8}
+.card b{color:var(--accent);font-weight:700}
+.text ul.flow{display:flex;flex-wrap:wrap;align-items:center;gap:.45em .4em;margin:0 0 .9em}
+.text .flow li{margin:0;padding:.3em .85em;border-radius:99px;background:var(--tile);font-weight:600;font-size:.94em;line-height:1.7}
+.text .flow li::before{display:none}
+.text .flow li.ar-li{background:none;padding:0}
+.flow .ar{color:var(--accent);font-style:normal;font-weight:700}
+.geno{display:grid;gap:.5em;margin:0 0 .9em}
+.geno>div{display:grid;grid-template-columns:5.6em 1fr;gap:.9em;align-items:center;padding:.6em .9em;border-radius:12px;
+  background:var(--tile);border-inline-start:3px solid var(--accent3);line-height:1.8}
+.geno>div.off{border-color:var(--accent)}
+.geno .gt{direction:ltr;unicode-bidi:isolate;font-weight:700;font-style:italic;color:var(--accent2);text-align:center}
+
+/* ═════════ مدل‌های سه‌بعدی ═════════ */
+#glc{position:fixed;inset:0;width:100%;height:100%;z-index:4;pointer-events:none}
+body.focus-open #glc{z-index:20}
+.gl{cursor:pointer;touch-action:pan-y;-webkit-user-select:none;user-select:none;border-radius:14px}
+.gl:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.gl-zoom{position:absolute;inset-inline-end:4px;top:4px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  background:var(--tile);color:var(--fg2);pointer-events:none;transition:transform .25s ease,background .25s ease,color .25s ease}
+.gl:hover .gl-zoom{transform:scale(1.12);background:var(--accent);color:#fff}
+.gl-zoom svg{width:14px;height:14px}
+.gl:not([data-state="ready"]) .gl-zoom{display:none}
+.gl[data-state="nogl"] .gl-msg::after{content:"این دستگاه WebGL را پشتیبانی نمی‌کند."}
+.gl[data-state="error"],.gl[data-state="nogl"]{background:center 36%/34% no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M40 10c5 0 8 3 7 8-2 14-11 31-27 38 2-16 10-32 20-46z' fill='%23C9271D' opacity='.85'/%3E%3Cpath d='M38 10c-1-4 1-6 5-7' stroke='%233F7D3B' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")}
+.gl[data-state="error"] .gl-msg,.gl[data-state="nogl"] .gl-msg{align-items:end}
+#fbg{position:fixed;inset:0;z-index:19;opacity:0;transition:opacity .45s ease;touch-action:none;cursor:grab;
+  background:radial-gradient(70vmax 60vmax at 50% 46%,#40301f 0%,#1c1814 58%,#100e0c 100%)}
+#fbg:active{cursor:grabbing}
+#fbg.on{opacity:1}
+#focus{position:fixed;inset:0;z-index:22;pointer-events:none;color:#F4ECDF;display:flex;flex-direction:column;justify-content:space-between;
+  padding:max(14px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+  opacity:0;transition:opacity .4s ease .12s}
+#focus.on{opacity:1}
+.fbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ftitle{text-align:center;line-height:1.4}
+.ftitle b{display:block;font-size:1.15rem;font-weight:800}
+.ftitle small{display:block;direction:ltr;opacity:.7;font-size:.8rem}
+.fbtn{pointer-events:auto;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);
+  color:inherit;font:inherit;font-size:20px;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .2s}
+.fbtn:hover,.fbtn:focus-visible{background:rgba(255,255,255,.22);outline:none}
+.ffoot{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.ffoot p{font-size:.8rem;opacity:.7}
+#fchips{display:flex;gap:8px;pointer-events:auto;flex-wrap:wrap;justify-content:center}
+#fchips button{font:inherit;font-size:.85rem;padding:.5em 1.1em;border-radius:99px;border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.08);color:inherit;cursor:pointer;transition:background .2s,border-color .2s}
+#fchips button.on{background:#C9271D;border-color:#C9271D;color:#fff}
+@media (prefers-reduced-motion:reduce){#fbg,#focus{transition:none}}
+
+/* ═════════ اصلاح فونت و حروف‌چینی فارسی ═════════ */
+:root{font-synthesis:none}
+html{font-kerning:normal;text-rendering:optimizeLegibility;font-variant-ligatures:common-ligatures contextual;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.slide *,.fbar *,.ffoot *{letter-spacing:0;word-spacing:0}
+.en{font-family:'Vazirmatn','Segoe UI',system-ui,sans-serif}
+.en.sp,.geno .gt{font-family:Georgia,'Times New Roman','Noto Serif',serif;font-style:italic;font-weight:400}
+.geno .gt{font-weight:700}
+.text li strong,.card b{font-weight:700}
+
+
+/* ═════════ اسلاید ۱: هر میوه با توضیحش ═════════ */
+.fruits{display:grid;gap:12px;min-width:0;justify-items:stretch;align-self:center}
+.fruit{margin:0;display:grid;gap:8px;padding:10px;border-radius:16px;background:var(--tile);
+  border-inline-start:3px solid var(--accent2);box-shadow:0 14px 30px -20px rgba(0,0,0,.4)}
+.fruit img{width:100%;height:auto;max-height:24vh;object-fit:contain;border-radius:10px;background:rgba(255,255,255,.35)}
+.fruit figcaption{line-height:1.8;font-size:.92em;padding:0 .3em .2em}
+.fruit figcaption b{display:inline-block;color:var(--accent);font-weight:700;margin-inline-end:.5em}
+@media (min-width:900px) and (min-height:560px){
+  .fruits{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .fruit img{max-height:30vh}
+}
+
+/* ═════════ عنوان اسلاید ۲ و اسلاید ۸ ═════════ */
+.h2-sm{font-size:.7em;font-weight:600;display:inline-block;line-height:1.5}
+#s8 .text{align-self:center;max-width:44em}
+#s8 .text h2{font-size:clamp(2rem,4.4vw,3.2rem)}
+
+/* ═════════ منابع و مراجع علمی (اسلاید ۸) ═════════ */
+.refs{position:relative;min-width:0;flex:none;font-size:clamp(13px,1.05vw,15px);line-height:1.7;color:var(--fg2);
+  border-top:1px solid rgba(128,118,104,.35);padding-top:16px}
+.refs-title{font-size:1.1em;font-weight:800;color:var(--fg);line-height:1.5;margin-bottom:.6em}
+.refs-title::before{content:"";display:block;width:2em;height:3px;border-radius:3px;margin-bottom:.5em;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.refs-list{margin:0;padding-inline-start:1.6em}
+.refs-list li{margin-bottom:.6em;padding-inline-start:.25em}
+.refs-list li::marker{color:var(--accent);font-weight:700}
+.ref-t{display:block;direction:ltr;text-align:left;unicode-bidi:isolate;color:var(--fg);font-weight:600;text-decoration:underline;
+  text-decoration-color:rgba(128,118,104,.5);text-underline-offset:.22em;overflow-wrap:anywhere}
+.ref-t:hover,.ref-t:focus-visible{color:var(--accent);text-decoration-color:var(--accent);outline:none}
+.ref-m{display:block;direction:ltr;text-align:left;unicode-bidi:isolate;font-size:.88em;color:var(--fg2)}
+@media (min-width:900px) and (min-height:560px){
+  .refs{border-top:0;padding-top:0;border-inline-start:1px solid rgba(128,118,104,.35);padding-inline-start:clamp(18px,2.2vw,36px);
+    max-height:100%;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(128,118,104,.45) transparent;align-self:center}
+}
+.credit{margin-top:1.1em;font-size:.92em;color:var(--fg2)}
+/* ═════════ نشانگر بارگذاری و تلاش مجدد مدل‌ها ═════════ */
+.gl-msg{align-content:center;gap:6px}
+.gl-txt{font-size:.9em;line-height:1.5}
+.gl-retry{pointer-events:auto;order:2;font:inherit;font-size:.95em;padding:.35em 1.1em;border-radius:99px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer;touch-action:manipulation}
+.gl-retry:hover,.gl-retry:focus-visible{background:var(--accent);color:#fff;outline:none}
+.gl[data-state="error"] .gl-msg{align-content:end;padding-bottom:8px}
+.gl[data-state="error"] .gl-msg::after{order:1}
+</style>
+</head>
+<body data-theme="light">
+<div class="num" id="num" aria-hidden="true"><span>01</span></div>
+
+<main class="deck" id="deck" tabindex="-1">
+<section class="slide" id="s1" data-n="1" style="--cols:minmax(0,1fr) minmax(0,1.1fr)" aria-label="اسلاید 1">
+<div class="body">
+<div class="text">
+  <h1 class="kicker rv">کارولینا ریپر؛ از اصلاح نژاد تا تولید یکی از تندترین فلفل‌های جهان</h1>
+  <h2 class="rv">چرا گیاهان را تغییر می‌دهیم؟</h2>
+  <p class="rv lead">بسیاری از گیاهان خوراکی امروزی با نیاکان وحشی خود تفاوت زیادی دارند؛ بخش بزرگی از این تغییر نتیجه <strong>انتخاب مصنوعی</strong> است.</p>
+  <p class="rv">انسان گیاهان دارای صفات مطلوب‌تر را انتخاب می‌کند و از آن‌ها بذر می‌گیرد؛ با تکرار در نسل‌های متوالی، صفات موردنظر در جمعیت بیشتر می‌شوند.</p>
+  <p class="rv note">انتخاب فقط روی تنوعی اثر می‌گذارد که ژنتیکی و ارثی باشد؛ همین اصل، پیوند اصلاح نژاد با ژنتیک است.</p>
+</div>
+<div class="fruits">
+    <figure class="fruit rv-f"><img src="https://cdn.imgurl.ir/uploads/w098694_.png" alt="هندوانه در مقایسه با نیای وحشی" decoding="async" loading="lazy"><figcaption><b>هندوانه</b>نیاکان وحشی هندوانه میوه‌ای کوچک‌تر و کم‌شیرین‌تر داشتند؛ انتخاب انسان آن را به میوه‌ای بزرگ و شیرین رسانده است.</figcaption></figure>
+    <figure class="fruit rv-f"><img src="https://cdn.imgurl.ir/uploads/f65267_.jpg" alt="بادمجان در مقایسه با نیای وحشی" decoding="async" loading="lazy"><figcaption><b>بادمجان</b>انتخاب انسان ارقامی با میوه بزرگ‌تر و تلخی کمتر ایجاد کرده است.</figcaption></figure>
+    <figure class="fruit rv-f"><img src="https://cdn.imgurl.ir/uploads/t852881_.jpg" alt="ذرت در مقایسه با نیای وحشی" decoding="async" loading="lazy"><figcaption><b>ذرت</b>ذرت امروزی از گیاه وحشی تئوسینته (<bdi class="en sp" dir="ltr">Teosinte</bdi>) با بلال‌های بسیار کوچک و دانه‌های سخت‌پوشش به‌وجود آمده است.</figcaption></figure>
+  </div>
+</div>
+<p class="hint" aria-hidden="true">برای ادامه، به بالا بکشید <span class="arr">↑</span></p>
+</section>
+<section class="slide dark" id="s2" data-n="2" style="--cols:minmax(0,1fr) minmax(0,1.2fr)" aria-label="اسلاید 2">
+<div class="body">
+<div class="text">
+  <h2 class="rv">آشنایی با کارولینا ریپر <span class="h2-sm">(یکی از تندترین فلفل‌های دنیا)</span> و جایگاه آن در گیاه‌شناسی</h2>
+  <p class="rv lead">هدف اصلاح نژاد همیشه شیرین‌تر یا بزرگ‌تر شدن میوه نیست؛ گاهی هدف، افزایش یک ویژگی خاص مثل تندی است.</p>
+  <ul class="flow rv"><li>خانواده بادنجانیان · <bdi class="en sp" dir="ltr">Solanaceae</bdi></li><li class="ar-li"><i class="ar">←</i></li><li>سرده <bdi class="en sp" dir="ltr">Capsicum</bdi></li><li class="ar-li"><i class="ar">←</i></li><li>گونه <bdi class="en sp" dir="ltr">Capsicum chinense</bdi></li></ul>
+  <p class="rv note">فلفل (<bdi class="en sp" dir="ltr">Capsicum</bdi>)، گوجه‌فرنگی، بادمجان و سیب‌زمینی هم‌خانواده‌اند؛ اما فلفل در سرده‌ای جدا قرار دارد و سه گیاه دیگر هر سه به سرده <bdi class="en sp" dir="ltr">Solanum</bdi> تعلق دارند. هیچ‌کدام نیای مستقیم دیگری نیست.</p>
+  <p class="rv">کارولینا ریپر رقمی (<bdi class="en" dir="ltr">cultivar</bdi>) از گونه <bdi class="en sp" dir="ltr">C. chinense</bdi> است و با دُم نوک‌تیز و پوست برآمده شناخته می‌شود؛ هابانرو نیز از همین گونه است. نام <bdi class="en sp" dir="ltr">chinense</bdi> گمراه‌کننده است: این گونه منشأ آمریکای جنوبی دارد، نه چین.</p>
+
+</div>
+<div class="media"><div class="cell"><figure class="tile rv-f"><img src="https://cdn.imgurl.ir/uploads/h795887_.jpg" alt="جایگاه کارولینا ریپر در کنار سایر اعضای خانواده بادنجانیان" decoding="async" ></figure></div></div>
+</div>
+</section>
+<section class="slide" id="s3" data-n="3" style="--cols:minmax(0,1.2fr) minmax(0,1fr)" aria-label="اسلاید 3">
+<div class="body">
+<div class="text">
+  <h2 class="rv">تاریخچه اصلاح نژاد و پیدایش کارولینا ریپر</h2>
+  <p class="rv lead">حاصل انتخاب هدفمند اصلاح‌گر آمریکایی اد کِری (<bdi class="en" dir="ltr">Ed Currie</bdi>)، بنیان‌گذار <bdi class="en" dir="ltr">PuckerButt Pepper Company</bdi> در کارولینای جنوبی.</p>
+  <ul class="rv"><li><strong><bdi class="en" dir="ltr">Naga Viper</bdi></strong>: بسیار تند، از گروه ناگا (ریشه ارقام ناگا در جنوب آسیاست؛ خود ناگا ویپر دورگی ساخت بریتانیاست).</li><li><strong><bdi class="en" dir="ltr">Sweet Habanero</bdi></strong>: هابانرو با منشأ کارائیبی؛ کری از هابانروی قرمزی از جزیره سنت وینسنت یاد کرده است.</li></ul>
+  <ul class="rv tl">
+    <li><strong>حدود ۲۰۰۱–۲۰۰۲</strong> شروع کار روی فلفل‌های بسیار تند؛ تلاقی دو والد.</li>
+    <li><strong>بیش از ده سال</strong> انتخاب نسل‌به‌نسل برای تندی بیشتر و شکل خاص‌تر تا تثبیت رقم؛ کد اولیه <bdi class="en" dir="ltr">HP22B</bdi>.</li>
+    <li><strong>۲۰۱۳</strong> رکورد جهانی گینس؛ میانگین ثبت‌شده حدود ۱٫۵۷ میلیون واحد اسکویل (<bdi class="en" dir="ltr">SHU</bdi>).</li>
+    <li><strong>۲۰۲۳</strong> رکورد با <bdi class="en" dir="ltr">Pepper X</bdi> (از همان اصلاح‌گر) شکسته شد.</li>
+  </ul>
+</div>
+<div class="stage" id="stage">
+  <div class="parents">
+    <figure class="model rv-f" data-model="naga">
+      <div class="gl" data-state="idle"><span class="gl-msg"></span></div>
+      <figcaption><b>فلفل ناگا</b><small dir="ltr">Naga Viper</small></figcaption>
+    </figure>
+    <div class="plus" aria-hidden="true">+</div>
+    <figure class="model rv-f" data-model="habanero">
+      <div class="gl" data-state="idle"><span class="gl-msg"></span></div>
+      <figcaption><b>هابانرو</b><small dir="ltr">Sweet Habanero</small></figcaption>
+    </figure>
+  </div>
+  <div class="gap"></div>
+  <div class="child">
+    <figure class="model big rv-f" data-model="reaper">
+      <div class="gl" data-state="idle"><span class="gl-msg"></span></div>
+      <figcaption><b>کارولینا ریپر</b><small dir="ltr">Carolina Reaper · HP22B</small></figcaption>
+    </figure>
+    <aside class="breeder rv-f">
+      <div class="media"><div class="cell"><figure class="tile rv-f"><img src="https://cdn.imgurl.ir/uploads/m388130_.jpeg" alt="اد کِری (Ed Currie)، اصلاح‌گر آمریکایی و ایجادکننده رقم کارولینا ریپر" decoding="async" loading="lazy"></figure></div></div>
+      <p>اد کِری (<bdi class="en" dir="ltr">Smokin' Ed</bdi>)؛ خالق رقم کارولینا ریپر.</p>
+    </aside>
+  </div>
+  <svg class="arrows" id="arrows" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+    <path class="ln" id="ar0" marker-end="url(#ah)"/><path class="ln" id="ar1" marker-end="url(#ah)"/>
+  </svg>
+</div>
+</div>
+</section>
+<section class="slide dark" id="s4" data-n="4" style="--cols:minmax(0,1.3fr) minmax(0,1fr)" aria-label="اسلاید 4">
+<div class="body">
+<div class="text">
+  <h2 class="rv">ژن <bdi class="en sp" dir="ltr">Pun1</bdi> و ساخت کپسایسینوئیدها (عامل تندی)</h2>
+  <p class="rv lead">حس تندی از گروهی ترکیب به نام <strong>کپسایسینوئیدها</strong> می‌آید که معروف‌ترین آن‌ها کپسایسین است.</p>
+  <p class="rv">این ترکیبات عمدتاً در بافت جفت (<bdi class="en" dir="ltr">Placenta</bdi>) میوه ساخته می‌شوند، نه در دانه‌ها. ژن <bdi class="en sp" dir="ltr">Pun1</bdi> پروتئینی از خانواده آسیل‌ترانسفرازها را رمزگذاری می‌کند که در مرحله پایانی ساخت آن‌ها نقش دارد؛ شواهد مطالعه ۲۰۱۵ به فعالیت کپسایسین‌سنتازی آن اشاره دارد.</p>
+  <div class="geno rv">
+    <div><span class="gt">Pun1/–</span><span>حداقل یک نسخه فعال (آلل غالب) ← امکان تولید کپسایسینوئید</span></div>
+    <div class="off"><span class="gt">pun1/pun1</span><span>هر دو نسخه مغلوب و غیرفعال ← عملاً بدون کپسایسینوئید؛ میوه تند نمی‌شود</span></div>
+  </div>
+  <p class="rv">در بسیاری از فلفل‌های شیرین، آلل غیرفعال به‌صورت هموزیگوت وجود دارد.</p>
+  <p class="rv note">تندی صفتی کمّی و چندژنی است: <bdi class="en sp" dir="ltr">Pun1</bdi> شرط لازم است، نه کافی. برای تندی بسیار زیاد، انتخاب هم‌زمان روی چند ژن و شرایط مناسب رشد لازم است؛ به همین دلیل انتخاب نسل‌به‌نسل می‌تواند تندی را تدریجاً بالا ببرد.</p>
+</div>
+<div class="media"><div class="cell"><figure class="tile rv-f"><img src="https://cdn.imgurl.ir/uploads/602730_.jpg" alt="تصویر مرتبط با ژن Pun1 و ساخت کپسایسینوئیدها در فلفل" decoding="async" loading="lazy"></figure></div></div>
+</div>
+</section>
+<section class="slide" id="s5" data-n="5" style="--cols:minmax(0,1fr) minmax(0,1.1fr)" aria-label="اسلاید 5">
+<div class="body">
+<div class="text">
+  <h2 class="rv">تأثیر محیط بر رشد و محصول‌دهی</h2>
+  <p class="rv lead">دو گیاه با ژنوتیپ یکسان لزوماً فنوتیپ (صفات و عملکرد قابل مشاهده) یکسانی ندارند.</p>
+  <p class="rv">اگر بذر یک رقم کارولینا ریپر را در دو کشور با آب‌وهوای متفاوت بکاریم، ممکن است رشد، زمان گل‌دهی، تعداد و اندازه میوه و حتی میزان کپسایسینوئید تفاوت کند.</p>
+  <ul class="flow rv"><li>دما</li><li>شدت نور</li><li>طول فصل رشد</li><li>رطوبت</li><li>کیفیت خاک</li><li>آبیاری</li></ul>
+
+  <p class="rv note">فنوتیپ حاصل ژنوتیپ، محیط و برهم‌کنش آن‌هاست؛ پس برای پیش‌بینی عملکرد یک رقم، شناخت ژنتیک آن کافی نیست و شرایط محیطی را هم باید در نظر گرفت.</p>
+</div>
+<div class="media"><div class="cell"><figure class="tile rv-f"><img src="https://cdn.imgurl.ir/uploads/l738098_.png" alt="تأثیر شرایط محیطی بر رشد و محصول‌دهی گیاه" decoding="async" loading="lazy"></figure></div></div>
+</div>
+</section>
+<section class="slide dark" id="s6" data-n="6" style="--cols:minmax(0,1fr) minmax(0,1.2fr)" aria-label="اسلاید 6">
+<div class="body">
+<div class="text">
+  <h2 class="rv">تجربه عملی کشت کارولینا ریپر</h2>
+  <p class="rv lead">تجربه شخصی من از پرورش کارولینا ریپر، از بذر تا میوه.</p>
+  <ul class="flow rv"><li>بذر</li><li class="ar-li"><i class="ar">←</i></li><li>انتقال به بستر بزرگ</li><li class="ar-li"><i class="ar">←</i></li><li>رشد رویشی</li><li class="ar-li"><i class="ar">←</i></li><li>گل‌دهی</li><li class="ar-li"><i class="ar">←</i></li><li>میوه‌دهی</li></ul>
+  <ul class="rv"><li>رشد اولیه نسبتاً کند بود، سپس رشد رویشی به‌شدت افزایش یافت.</li><li>گل‌های اولیه فراوان بودند اما بسیاری به میوه تبدیل نشدند و ریزش کردند؛ پس از گرده‌افشانی دستی، تشکیل میوه را مشاهده کردم.</li><li>میوه‌ها با گذشت زمان بزرگ‌تر شدند و تغییر رنگ دادند.</li></ul>
+  <p class="rv note">این مشاهده‌ها تجربه شخصی‌اند، نه نتیجه آزمایش کنترل‌شده؛ اما می‌توانند مثالی از اثر شرایط رشد و مدیریت بر فنوتیپ باشند.</p>
+</div>
+<div class="media"><div class="cell"><figure class="tile rv-f"><img src="https://cdn.imgurl.ir/uploads/f888281_.jpg" alt="تصویر واقعی از مراحل رشد گیاه کارولینا ریپر و فلفل‌های برداشت‌شده؛ نمونه 1 از ۳" decoding="async" loading="lazy"></figure></div><div class="cell"><figure class="tile rv-f"><img src="https://cdn.imgurl.ir/uploads/u45361_.jpg" alt="تصویر واقعی از مراحل رشد گیاه کارولینا ریپر و فلفل‌های برداشت‌شده؛ نمونه 2 از ۳" decoding="async" loading="lazy"></figure></div><div class="cell"><figure class="tile rv-f"><img src="https://cdn.imgurl.ir/uploads/y340028_.jpg" alt="تصویر واقعی از مراحل رشد گیاه کارولینا ریپر و فلفل‌های برداشت‌شده؛ نمونه 3 از ۳" decoding="async" loading="lazy"></figure></div></div>
+</div>
+</section>
+<section class="slide" id="s7" data-n="7" style="--cols:minmax(0,1.38fr) minmax(0,1fr)" aria-label="اسلاید 7">
+<div class="body">
+<div class="text">
+  <h2 class="rv">چرا انسان به دنبال تولید فلفل‌های بسیار تند است؟</h2>
+  <p class="rv lead">انگیزه‌ها ترکیبی از بازار، صنعت فرآوری و رقابت است.</p>
+  <div class="cards rv">
+    <div class="card"><b>بازار مصرف</b> علاقه به غذاهای تند و سس‌های تند، مثلاً در آمریکا؛ از جمله مرغ سوخاری تند در منوی رستوران‌های زنجیره‌ای.</div>
+    <div class="card"><b>فرآوری</b> رقم پرکپسایسینوئید یعنی با مقدار کمتری ماده اولیه می‌توان تندی بیشتری به سس، چاشنی و عصاره‌های فلفلی داد؛ کپسایسین در برخی فرآورده‌های موضعی ضددرد و اسپری فلفل هم کاربرد دارد.</div>
+    <div class="card"><b>رقابت</b> ثبت رکوردهای جهانی، چالش‌های تندی و تولید ارقام تندتر.</div>
+  </div>
+  <p class="rv">ریپر هم نمونه‌ای از انتخاب مصنوعی و ژنتیک است و هم از نظر غذایی و تجاری مورد توجه.</p>
+</div>
+<div class="media"><div class="cell"><figure class="tile rv-f"><img src="https://cdn.imgurl.ir/uploads/d034419_.jpg" alt="کارولینا ریپر؛ نمونه‌ای از تأثیر ژنتیک و انتخاب مصنوعی" decoding="async" loading="lazy"></figure></div></div>
+</div>
+</section>
+<section class="slide dark" id="s8" data-n="8" style="--cols:minmax(0,1fr) minmax(0,1.25fr)" aria-label="اسلاید 8">
+<div class="body">
+<div class="text">
+  <h2 class="rv">تقدیر و تشکر</h2>
+  <p class="rv">از توجه و همراهی شما صمیمانه سپاسگزارم؛ از پرسش‌ها و نظرات شما استقبال می‌کنم.</p>
+  <p class="rv note">با تشکر فراوان</p>
+  <p class="rv credit">گردآورنده: امیرعباس جانفدا</p>
+</div>
+<aside class="refs rv" aria-labelledby="refs-title">
+  <h3 class="refs-title" id="refs-title">منابع و مراجع علمی</h3>
+  <ol class="refs-list">
+    <li><a class="ref-t" href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:814752-1" target="_blank" rel="noopener noreferrer">Capsicum chinense: Plants of the World Online</a><span class="ref-m">Royal Botanic Gardens, Kew</span></li>
+    <li><a class="ref-t" href="https://phytokeys.pensoft.net/article/71667/" target="_blank" rel="noopener noreferrer">Monograph of wild and cultivated chili peppers (Capsicum L., Solanaceae)</a><span class="ref-m">Barboza et al. · PhytoKeys 200 · 2022</span></li>
+    <li><a class="ref-t" href="https://www.guinnessworldrecords.com/news/2013/11/confirmed-smokin-eds-carolina-reaper-sets-new-record-for-hottest-chilli-53033" target="_blank" rel="noopener noreferrer">Confirmed: Smokin Ed's Carolina Reaper sets new record for hottest chilli</a><span class="ref-m">Guinness World Records · 2013</span></li>
+    <li><a class="ref-t" href="https://www.guinnessworldrecords.com/news/2023/10/pepper-x-dethrones-carolina-reaper-as-worlds-hottest-chilli-pepper-759706" target="_blank" rel="noopener noreferrer">Pepper X dethrones Carolina Reaper as world's hottest chilli pepper</a><span class="ref-m">Guinness World Records · 2023</span></li>
+    <li><a class="ref-t" href="https://onlinelibrary.wiley.com/doi/10.1111/j.1365-313X.2005.02410.x" target="_blank" rel="noopener noreferrer">The Pun1 gene for pungency in pepper encodes a putative acyltransferase</a><span class="ref-m">Stewart et al. · Plant J 42(5) · 2005</span></li>
+    <li><a class="ref-t" href="https://academic.oup.com/jxb/article/58/5/979/486285" target="_blank" rel="noopener noreferrer">Genetic control of pungency in C. chinense via the Pun1 locus</a><span class="ref-m">Stewart et al. · J Exp Bot 58(5) · 2007</span></li>
+    <li><a class="ref-t" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4386094/" target="_blank" rel="noopener noreferrer">Evidence of capsaicin synthase activity of the Pun1-encoded protein and its role as a determinant of capsaicinoid accumulation in pepper</a><span class="ref-m">Ogawa et al. · BMC Plant Biology 15 · 2015</span></li>
+    <li><a class="ref-t" href="https://academic.oup.com/aob/article/100/5/967/137020" target="_blank" rel="noopener noreferrer">Genomic Screening for Artificial Selection during Domestication and Improvement in Maize</a><span class="ref-m">Yamasaki, Wright &amp; McMullen · Annals of Botany 100(5) · 2007</span></li>
+    <li><a class="ref-t" href="https://www.mdpi.com/2223-7747/13/21/3013" target="_blank" rel="noopener noreferrer">Physiological and Genetic Aspects of Resistance to Abiotic Stresses in Capsicum Species</a><span class="ref-m">Zhang et al. · Plants 13(21) · 2024</span></li>
+    <li><a class="ref-t" href="https://www.mdpi.com/2223-7747/13/20/2887" target="_blank" rel="noopener noreferrer">The Influence of Different Factors on the Metabolism of Capsaicinoids in Pepper (Capsicum annuum L.)</a><span class="ref-m">Yang et al. · Plants 13(20) · 2024</span></li>
+  </ol>
+</aside>
+</div>
+</section>
+</main>
+<div class="prog" id="prog" aria-hidden="true"></div>
+<canvas id="glc" aria-hidden="true"></canvas>
+<div id="fbg" hidden></div>
+<div id="focus" hidden role="dialog" aria-modal="true" aria-label="نمای بزرگ فلفل">
+  <header class="fbar"><button class="fbtn" id="fclose" type="button" aria-label="بستن">✕</button>
+    <div class="ftitle"><b id="ftf"></b><small id="fte"></small></div>
+    <button class="fbtn" id="freset" type="button" aria-label="بازنشانی زاویه">⟲</button></header>
+  <footer class="ffoot"><p>بکشید تا بچرخد · دو انگشت یا چرخ ماوس برای بزرگ‌نمایی</p><nav id="fchips" aria-label="انتخاب فلفل"></nav></footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+document.documentElement.classList.add('js');
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const deck=$('#deck'), slides=$$('.slide'), num=$('#num');
+const wide=matchMedia('(min-width:900px) and (min-height:560px)');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ───── شماره اسلاید، تم و انیمیشن ورود ───── */
+let active=1;
+function setActive(n){
+  if(n===active) return; active=n;
+  num.innerHTML='<span>'+String(n).padStart(2,'0')+'</span>';
+  document.body.dataset.theme=slides[n-1].classList.contains('dark')?'dark':'light';
+}
+slides.forEach(s=>$$('.rv,.rv-f',s).forEach((el,i)=>el.style.setProperty('--i',Math.min(i,10))));
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return;
+  e.target.classList.add('in');
+  setActive(+e.target.dataset.n);
+}),{root:deck,threshold:.55});
+slides.forEach(s=>io.observe(s));
+slides[0].classList.add('in');
+
+/* ───── کلیدهای صفحه‌کلید (برای ارائه با کیبورد/ریموت) ───── */
+let pending=null, pendingTimer=0;
+const cur=()=>Math.round(deck.scrollTop/deck.clientHeight);
+function go(i){
+  i=Math.max(0,Math.min(slides.length-1,i)); pending=i;
+  deck.scrollTo({top:i*deck.clientHeight,behavior:reduce?'auto':'smooth'});
+  clearTimeout(pendingTimer); pendingTimer=setTimeout(()=>{pending=null},800);
+}
+addEventListener('keydown',e=>{
+  if(document.body.classList.contains('focus-open')) return;
+  if(e.altKey||e.ctrlKey||e.metaKey) return;
+  const k=e.key; let dir=0;
+  if(k==='ArrowDown'||k==='PageDown'||(k===' '&&!e.shiftKey)) dir=1;
+  else if(k==='ArrowUp'||k==='PageUp'||(k===' '&&e.shiftKey)) dir=-1;
+  else if(k==='Home'){e.preventDefault();go(0);return}
+  else if(k==='End'){e.preventDefault();go(slides.length-1);return}
+  else return;
+  e.preventDefault();
+  const i=pending===null?cur():pending;
+  const body=$('.body',slides[i]);
+  const room=dir>0?body.scrollHeight-body.clientHeight-body.scrollTop:body.scrollTop;
+  if(pending===null&&room>4){body.scrollBy({top:dir*body.clientHeight*.85,behavior:reduce?'auto':'smooth'});return}
+  go(i+dir);
+});
+
+/* ───── چرخ ماوس: هر حرکت = دقیقاً یک اسلاید (CSS Scroll Snap همچنان پایه است؛ این فقط تضمین می‌کند
+         چرخ ماوس/تاچ‌پد هیچ‌وقت وسط دو اسلاید نماند) ───── */
+let wLock=0, lastInner=0;
+deck.addEventListener('wheel',e=>{
+  if(e.ctrlKey||e.deltaY===0||Math.abs(e.deltaY)<Math.abs(e.deltaX)) return;
+  const now=performance.now(), dir=e.deltaY>0?1:-1;
+  const body=e.target.closest&&e.target.closest('.body');
+  if(body){
+    const room=dir>0?body.scrollHeight-body.clientHeight-body.scrollTop:body.scrollTop;
+    if(room>2){lastInner=now;return}           /* متن داخل اسلاید هنوز جا برای اسکرول دارد */
+  }
+  e.preventDefault();
+  if(now-lastInner<250){lastInner=now;return}   /* ادامه‌ی همان حرکتِ اسکرولِ داخلی */
+  if(now<wLock){wLock=Math.max(wLock,now+140);return}   /* دنباله‌ی اینرسی تاچ‌پد */
+  go((pending===null?cur():pending)+dir);
+  wLock=now+650;
+},{passive:false});
+
+/* ───── تصاویر: اندازه‌ی دقیق با حفظ نسبت ───── */
+addEventListener('error',e=>{
+  if(e.target&&e.target.tagName==='IMG'){const t=e.target.closest('.tile'); if(t){t.classList.add('broken'); sizeTiles();}}
+},true);
+function ratioOf(img){return (img.naturalWidth&&img.naturalHeight)?img.naturalWidth/img.naturalHeight:null}
+/* چیدمان تصاویر هر گروه: همه‌ی حالت‌های ردیف‌بندی را می‌سنجد و بزرگ‌ترین مساحتِ بدون بریدگی را برمی‌گزیند؛
+   تصاویر هم‌ردیف ارتفاع یکسان دارند و نسبت هر تصویر دقیقاً حفظ می‌شود. */
+function layoutMedia(m){
+  const cells=$$(':scope>.cell',m), imgs=cells.map(c=>$('img',c));
+  const rs=imgs.map(i=>ratioOf(i)||(m.closest('.breeder')?.8:4/3));
+  cells.forEach((c,i)=>c.style.setProperty('--r',rs[i]));
+  if(!wide.matches){cells.forEach(c=>{c.style.left=c.style.top=c.style.width=c.style.height=''});return}
+  const W=m.clientWidth,H=m.clientHeight,g=10,n=cells.length; if(!W||!H) return;
+  let best=null;
+  for(let mask=0;mask<(1<<(n-1));mask++){
+    const rows=[[0]];
+    for(let i=1;i<n;i++){ if(mask&(1<<(i-1))) rows.push([i]); else rows[rows.length-1].push(i) }
+    const hs=rows.map(r=>(W-g*(r.length-1))/r.reduce((a,i)=>a+rs[i],0));
+    const tot=hs.reduce((a,b)=>a+b,0)+g*(rows.length-1), s=Math.min(1,H/tot);
+    let area=0; rows.forEach((r,j)=>r.forEach(i=>{area+=rs[i]*hs[j]*hs[j]*s*s}));
+    if(!best||area>best.area) best={rows,hs,s,area,tot};
+  }
+  let {rows,hs,s}=best;
+  imgs.forEach((img,i)=>{const nw=img.naturalWidth; if(nw){const w=rs[i]*hs[rows.findIndex(r=>r.includes(i))]*s; if(w>nw*1.6) s*=nw*1.6/w}});
+  const total=hs.reduce((a,b)=>a+b,0)*s+g*(rows.length-1);
+  let y=(H-total)/2;
+  rows.forEach((r,j)=>{
+    const h=hs[j]*s, rowW=r.reduce((a,i)=>a+rs[i]*h,0)+g*(r.length-1);
+    let x=(W-rowW)/2;
+    r.forEach(i=>{const w=rs[i]*h, st=cells[i].style;
+      st.left=Math.round(x)+'px'; st.top=Math.round(y)+'px'; st.width=Math.round(w)+'px'; st.height=Math.round(h)+'px'; x+=w+g});
+    y+=h+g;
+  });
+}
+function sizeTiles(){$$('.media').forEach(layoutMedia)}
+$$('.tile img').forEach(img=>{
+  if(img.complete&&img.naturalWidth) sizeTiles(); else img.addEventListener('load',sizeTiles,{once:true});
+});
+
+/* ───── تنظیم خودکار اندازه‌ی متن در چیدمان عریض ───── */
+function fitText(){
+  slides.forEach(s=>{
+    if(!wide.matches){s.style.removeProperty('--fs');return}
+    const body=$('.body',s), text=$('.text',s), cs=getComputedStyle(body);
+    const avail=body.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+    const MIN=13, MAX=Math.min(24,Math.max(16,innerWidth/86));
+    let lo=MIN,hi=MAX,best=MIN;
+    while(hi-lo>.25){
+      const mid=(lo+hi)/2; s.style.setProperty('--fs',mid+'px');
+      if(text.offsetHeight<=avail){best=mid;lo=mid}else hi=mid;
+    }
+    s.style.setProperty('--fs',(Math.floor(best*2)/2)+'px');
+  });
+}
+
+/* ───── فلش‌های اسلاید ۳ ───── */
+function drawArrows(){
+  const st=$('#stage'), svg=$('#arrows'); if(!st||!svg) return;
+  const sr=st.getBoundingClientRect(); if(!sr.width||!sr.height) return;
+  const kid=$('.child .model .gl',st).getBoundingClientRect();
+  svg.setAttribute('viewBox','0 0 '+sr.width+' '+sr.height);
+  const cx=(kid.left+kid.right)/2-sr.left, y2=kid.top-sr.top+kid.height*.05;
+  $$('.parents .model figcaption',st).forEach((c,i)=>{
+    const r=c.getBoundingClientRect();
+    const x1=(r.left+r.right)/2-sr.left, y1=r.bottom-sr.top+8;
+    const x2=cx+(x1<cx?-16:16), k=Math.max(10,(y2-y1)*.55);
+    const p=$('#ar'+i); if(p) p.setAttribute('d','M'+x1+' '+y1+' C'+x1+' '+(y1+k)+' '+x2+' '+(y2-k)+' '+x2+' '+(y2-6));
+  });
+}
+
+let layoutTimer=0;
+function layoutAll(){fitText();sizeTiles();drawArrows()}
+function scheduleLayout(){clearTimeout(layoutTimer);layoutTimer=setTimeout(layoutAll,90)}
+new ResizeObserver(scheduleLayout).observe(deck);
+wide.addEventListener?.('change',layoutAll);
+layoutAll();
+if(document.fonts){document.fonts.ready.then(layoutAll);document.fonts.addEventListener?.('loadingdone',scheduleLayout)}
+addEventListener('load',layoutAll);
+
+/* ───── نوار پیشرفت ───── */
+const prog=$('#prog');
+deck.addEventListener('scroll',()=>{const m=deck.scrollHeight-deck.clientHeight; prog.style.transform='scaleX('+(m>0?deck.scrollTop/m:0)+')'},{passive:true});
+
+/* ═════════ سه‌بعدی: یک رندرر مشترک برای همه‌ی نماها (کم‌مصرف‌تر برای GPU) ═════════ */
+const MODEL_CFG={
+  naga:{file:'naga.glb',yaw:.9,fa:'فلفل ناگا',en:'Naga Viper'},
+  habanero:{file:'habanero.glb',yaw:2.2,fa:'هابانرو',en:'Sweet Habanero'},
+  reaper:{file:'reaper.glb',yaw:.4,fa:'کارولینا ریپر',en:'Carolina Reaper · HP22B'}
+};
+const ORDER=['naga','habanero','reaper'];
+/* پله‌های کیفیت: وضوح پیکسلی، اندازه‌ی نقشه‌ی سایه (۰ = بدون سایه‌ی واقعی)، سقف فریم */
+const TIERS=[{dpr:2,sh:1024,fps:60},{dpr:1.5,sh:512,fps:60},{dpr:1,sh:0,fps:30}];
+const mem=navigator.deviceMemory||4, cores=navigator.hardwareConcurrency||4, coarse=matchMedia('(pointer:coarse)').matches;
+const GL={state:'idle',tries:0,lib:null,items:{},visible:false,raf:0,r:null,rt:null,focus:null,last:0,ema:16,n:0,lost:false,
+  ti:(mem<=2||cores<=2)?2:((coarse&&(mem<=4||cores<=6))?1:0)};
+const ease=t=>1-Math.pow(1-t,3), clamp01=t=>Math.max(0,Math.min(1,t));
+
+/* ═════════ بارگذاری مدل‌ها: فایل GLB مستقل + کش + صف + تلاش مجدد ═════════ */
+const ASSET_VER='1';   /* اگر فایل‌های GLB عوض شدند این عدد را زیاد کنید تا کش قدیمی کنار برود */
+const CDNS=['https://cdn.jsdelivr.net/npm/three@0.170.0/','https://unpkg.com/three@0.170.0/'];
+let THREE_BASE='';
+const LOAD_ORDER=['reaper','naga','habanero'], MSTATE={}, BYTES={}, INFLIGHT={}, WRAP={};
+const conn=navigator.connection||{}, slowNet=!!conn.saveData||/(^|-)2g$/.test(conn.effectiveType||''), lowEnd=GL.ti>0;
+const fa=n=>n.toLocaleString('fa-IR');
+$$('#stage .gl').forEach(w=>{WRAP[w.closest('.model').dataset.model]=w});
+const modelURL=id=>new URL('models/'+MODEL_CFG[id].file+'?v='+ASSET_VER,document.baseURI).href;
+const isGLB=b=>!!b&&b.byteLength>20&&new DataView(b).getUint32(0,true)===0x46546C67;
+function ui(id,state,txt,retry){
+  const w=WRAP[id]; if(!w) return; w.dataset.state=state;
+  const m=$('.gl-msg',w); m.textContent='';
+  if(txt){const s=document.createElement('span');s.className='gl-txt';s.textContent=txt;m.appendChild(s)}
+  if(retry){const b=document.createElement('button');b.type='button';b.className='gl-retry';b.textContent=retry;
+    ['pointerdown','pointerup'].forEach(ev=>b.addEventListener(ev,e=>e.stopPropagation()));
+    b.addEventListener('click',e=>{e.stopPropagation();retryModel(id)});m.appendChild(b)}
+}
+async function download(url,onP){
+  const c=new AbortController(); let tm; const bump=()=>{clearTimeout(tm);tm=setTimeout(()=>c.abort(),20000)}; bump();
+  try{
+    const r=await fetch(url,{signal:c.signal,cache:'force-cache'}); if(!r.ok) throw new Error('HTTP '+r.status);
+    const total=+r.headers.get('content-length')||0;
+    if(!r.body||!r.body.getReader){const b=await r.arrayBuffer();onP&&onP(1);return b}
+    const rd=r.body.getReader(), parts=[]; let got=0;
+    for(;;){const {done,value}=await rd.read(); if(done) break; parts.push(value); got+=value.length; bump(); if(total&&onP) onP(Math.min(.99,got/total))}
+    const out=new Uint8Array(got); let o=0; for(const p of parts){out.set(p,o);o+=p.length}
+    onP&&onP(1); return out.buffer;
+  }finally{clearTimeout(tm)}
+}
+function getBytes(id,onP){
+  if(BYTES[id]) return Promise.resolve(BYTES[id]);
+  if(INFLIGHT[id]) return INFLIGHT[id];
+  return INFLIGHT[id]=(async()=>{
+    const url=modelURL(id); let cache=null;
+    try{ if('caches' in self){cache=await caches.open('reaper-glb-v'+ASSET_VER); const hit=await cache.match(url);
+      if(hit){const b=await hit.arrayBuffer(); if(isGLB(b)) return BYTES[id]=b; await cache.delete(url)}} }catch(e){cache=null}
+    let last;
+    for(let k=0;k<3;k++){
+      try{ const b=await download(url,onP); if(!isGLB(b)) throw new Error('invalid GLB');
+        try{cache&&await cache.put(url,new Response(b.slice(0),{headers:{'Content-Type':'model/gltf-binary'}}))}catch(e){}
+        return BYTES[id]=b;
+      }catch(e){last=e; if(k<2) await new Promise(r=>setTimeout(r,800*(k+1)))}
+    }
+    throw last;
+  })().finally(()=>{delete INFLIGHT[id]});
+}
+function probe(base,ms){return new Promise((ok,no)=>{const c=new AbortController(),tm=setTimeout(()=>{c.abort();no(new Error('timeout'))},ms);
+  fetch(base+'package.json',{signal:c.signal,cache:'force-cache'}).then(r=>{clearTimeout(tm);r.ok?ok(base):no(new Error('HTTP '+r.status))},e=>{clearTimeout(tm);no(e)})})}
+function pickCdn(){return new Promise((resolve,reject)=>{
+  let n=0,done=false,fbOn=false;
+  const win=b=>{if(!done){done=true;resolve(b)}}, lose=()=>{if(++n===CDNS.length&&!done)reject(new Error('CDN unreachable'))};
+  const fb=()=>{if(fbOn)return;fbOn=true;probe(CDNS[1],10000).then(win,lose)};
+  probe(CDNS[0],10000).then(win,()=>{lose();fb()});
+  setTimeout(()=>{if(!done)fb()},1500);
+})}
+GL.libP=null; GL.libFails=0;
+function loadLibs(){
+  if(GL.lib) return Promise.resolve(GL.lib);
+  if(GL.libP) return GL.libP;
+  return GL.libP=(async()=>{
+    if(!THREE_BASE){
+      THREE_BASE=await pickCdn();
+      const s=document.createElement('script'); s.type='importmap';
+      s.textContent=JSON.stringify({imports:{three:THREE_BASE+'build/three.module.js','three/addons/':THREE_BASE+'examples/jsm/'}});
+      document.head.appendChild(s);
+    }
+    const [T,g,d,o,rm]=await Promise.all([import('three'),import('three/addons/loaders/GLTFLoader.js'),import('three/addons/loaders/DRACOLoader.js'),import('three/addons/controls/OrbitControls.js'),import('three/addons/environments/RoomEnvironment.js')]);
+    const draco=new d.DRACOLoader(); draco.setDecoderPath(THREE_BASE+'examples/jsm/libs/draco/gltf/'); draco.setWorkerLimit(lowEnd?1:2); draco.preload();
+    const loader=new g.GLTFLoader(); loader.setDRACOLoader(draco);
+    return GL.lib={T,OrbitControls:o.OrbitControls,RoomEnvironment:rm.RoomEnvironment,loader,draco};
+  })().catch(e=>{GL.libP=null; if(THREE_BASE) GL.libFails++; throw e});
+}
+function ensureRenderer(){
+  if(GL.r) return;
+  const T=GL.lib.T; let r;
+  try{
+    const c=$('#glc'); r=new T.WebGLRenderer({canvas:c,antialias:GL.ti<2,alpha:true});
+    r.setClearColor(0,0); r.autoClear=false; r.toneMapping=T.NeutralToneMapping||T.ACESFilmicToneMapping; r.toneMappingExposure=1;
+    r.shadowMap.enabled=true; r.shadowMap.type=T.PCFSoftShadowMap;
+    c.addEventListener('webglcontextlost',e=>{e.preventDefault();GL.lost=true});
+    c.addEventListener('webglcontextrestored',()=>{GL.lost=false;buildEnv();applyQ();kick()});
+  }catch(e){console.warn('WebGL unavailable',e); const err=new Error('nogl'); err.nogl=1; throw err}
+  GL.r=r; buildEnv();
+}
+async function loadModel(id){
+  if(GL.items[id]||MSTATE[id]==='loading') return;
+  MSTATE[id]='loading'; ui(id,'loading','در حال بارگذاری…');
+  try{
+    const buf=await getBytes(id,p=>ui(id,'loading','در حال دریافت… '+fa(Math.round(p*100))+'٪'));
+    ui(id,'loading','در حال آماده\u200cسازی…');
+    await loadLibs(); ensureRenderer();
+    const gltf=await new Promise((res,rej)=>GL.lib.loader.parse(buf.slice(0),'',res,rej));
+    buildItem(id,WRAP[id],gltf); MSTATE[id]='ready'; ui(id,'ready'); applyQ(); kick();
+  }catch(e){
+    console.warn('[model]',id,e); MSTATE[id]='error';
+    if(e&&e.nogl) ui(id,'nogl'); else ui(id,'error','','تلاش مجدد');
+  }
+}
+function retryModel(id){
+  if(MSTATE[id]==='loading') return;
+  if(GL.libFails>=2&&!GL.lib){try{sessionStorage.setItem('rp-go','3')}catch(e){} location.reload(); return}
+  delete BYTES[id]; MSTATE[id]='idle'; loadModel(id);
+}
+let actBusy=false;
+async function activate(){ if(actBusy) return; actBusy=true; try{for(const id of LOAD_ORDER) if(!MSTATE[id]||MSTATE[id]==='idle') await loadModel(id)}finally{actBusy=false} }
+let pfOn=false;
+function prefetch(){
+  if(pfOn||slowNet) return; pfOn=true; loadLibs().catch(()=>{});
+  const q=LOAD_ORDER.slice(); const w=async()=>{while(q.length){try{await getBytes(q.shift())}catch(e){}}}; w(); w();
+}
+function release(){
+  if(GL.focus) return;
+  for(const id of ORDER){const it=GL.items[id]; if(!it) continue;
+    it.scene.traverse(o=>{if(o.geometry)o.geometry.dispose(); const ms=o.material?(Array.isArray(o.material)?o.material:[o.material]):[];
+      ms.forEach(m=>{for(const k in m){const v=m[k]; if(v&&v.isTexture)v.dispose()} m.dispose()})});
+    if(it.key&&it.key.shadow&&it.key.shadow.map) it.key.shadow.map.dispose();
+    delete GL.items[id]; MSTATE[id]='idle'; ui(id,'idle');
+  }
+}
+function kick(){ if(!GL.raf&&GL.r&&!GL.lost&&!document.hidden&&(GL.focus||GL.visible)) GL.raf=requestAnimationFrame(frame) }
+document.addEventListener('visibilitychange',kick);
+
+function applyQ(){
+  const r=GL.r; if(!r) return; const q=TIERS[GL.ti], c=r.domElement;
+  r.setPixelRatio(Math.min(devicePixelRatio||1,q.dpr)); r.setSize(c.clientWidth,c.clientHeight,false);
+  for(const id of ORDER){ const it=GL.items[id]; if(!it) continue;
+    it.key.castShadow=!!q.sh; it.ground.visible=!!q.sh;
+    if(q.sh) it.key.shadow.mapSize.set(q.sh,q.sh);
+    if(it.key.shadow.map){it.key.shadow.map.dispose();it.key.shadow.map=null}
+  }
+  GL.ema=16;
+}
+let rzT=0; addEventListener('resize',()=>{clearTimeout(rzT);rzT=setTimeout(()=>{applyQ();kick()},120)});
+
+function fitDist(it,cam,asp){
+  cam.aspect=asp; cam.updateProjectionMatrix();
+  const tv=Math.tan(cam.fov*Math.PI/360), th=tv*asp;
+  return Math.max((it.hh+.14)/tv+it.hr, it.hr/th+it.hr)*1.06;
+}
+function drawSmall(it,H,dt,now){
+  const rc=it.wrap.getBoundingClientRect();
+  if(rc.width<2||rc.bottom<0||rc.top>H) return;
+  it.yaw+=((it.drag||reduce)?0:.35*dt)+it.vel; it.vel*=.93;
+  const k=Math.min(1,dt*5); it.tx+=(it.ttx-it.tx)*k; it.ty+=(it.tty-it.ty)*k;
+  it.pivot.scale.setScalar(1);
+  it.pivot.rotation.set(it.ty*.16,it.yaw+it.tx*.3,0);
+  it.pivot.position.y=reduce?0:Math.sin(now/1200+it.phase)*.025;
+  const asp=rc.width/rc.height;
+  if(Math.abs(it.asp-asp)>.002){it.asp=asp;const d=fitDist(it,it.cam,asp);it.cam.position.set(0,Math.sin(.12)*d,Math.cos(.12)*d);it.cam.lookAt(0,0,0)}
+  const r=GL.r; r.setViewport(rc.left,H-rc.bottom,rc.width,rc.height); r.setScissor(rc.left,H-rc.bottom,rc.width,rc.height);
+  r.render(it.scene,it.cam);
+}
+function drawFocus(dt,now,W,H){
+  const f=GL.focus, it=GL.items[f.id], r=GL.r; f.controls.update();
+  const p=ease(clamp01((now-f.t0)/750)); let s=.6+.4*p;
+  if(f.closing){const q=clamp01((now-f.tc)/320); s=1-.3*ease(q); if(q>=1){finishClose();return}}
+  it.pivot.scale.setScalar(s); it.pivot.position.y=0; it.pivot.rotation.set(0,it.yaw+(1-p)*1.8,0);
+  const asp=W/H; if(Math.abs(f.asp-asp)>.002){f.asp=asp;f.cam.aspect=asp;f.cam.updateProjectionMatrix()}
+  r.setViewport(0,0,W,H); r.setScissor(0,0,W,H); r.render(it.scene,f.cam);
+}
+function frame(now){
+  GL.raf=0; if(!GL.r||GL.lost||document.hidden||!(GL.focus||GL.visible)) return;
+  const el=now-GL.last;
+  if(el<1000/TIERS[GL.ti].fps-3){GL.raf=requestAnimationFrame(frame);return}
+  const dt=Math.min(.05,(el/1000)||.016); GL.ema=GL.ema*.92+Math.min(el,100)*.08; GL.last=now;
+  if(++GL.n%75===0&&GL.ema>28&&GL.ti<2){GL.ti++;applyQ()}      /* کیفیت خودکار کم می‌شود */
+  const r=GL.r,c=r.domElement,W=c.clientWidth,H=c.clientHeight;
+  r.setScissorTest(false); r.clear(); r.setScissorTest(true);
+  if(GL.focus) drawFocus(dt,now,W,H); else for(const id of ORDER){const it=GL.items[id]; if(it) drawSmall(it,H,dt,now)}
+  if(!GL.raf&&(GL.focus||GL.visible)) GL.raf=requestAnimationFrame(frame);
+}
+
+/* ───── نمای بزرگ ───── */
+function setFocusModel(id){
+  const f=GL.focus, it=GL.items[id], cfg=MODEL_CFG[id], prev=GL.items[f.id];
+  if(prev&&prev!==it){prev.pivot.scale.setScalar(1)}
+  f.id=id; f.t0=performance.now(); f.closing=false;
+  $('#ftf').textContent=cfg.fa; $('#fte').textContent=cfg.en;
+  $$('#fchips button').forEach(b=>b.classList.toggle('on',b.dataset.id===id));
+  const W=innerWidth,H=innerHeight; f.asp=W/H;
+  f.d0=fitDist(it,f.cam,W/H)*1.28;
+  f.controls.minDistance=Math.max(it.hr*1.3,f.d0*.35); f.controls.maxDistance=f.d0*2;
+  resetFocusView();
+}
+function resetFocusView(){
+  const f=GL.focus; f.cam.position.set(Math.sin(.4)*f.d0*Math.cos(.18),Math.sin(.18)*f.d0,Math.cos(.4)*f.d0*Math.cos(.18));
+  f.controls.target.set(0,0,0); f.controls.update();
+}
+function openFocus(id){
+  if(GL.focus||!GL.items[id]||GL.lost) return;
+  const T=GL.lib.T, bg=$('#fbg'), ui=$('#focus');
+  const cam=new T.PerspectiveCamera(30,1,.1,80);
+  const controls=new GL.lib.OrbitControls(cam,bg);
+  controls.enablePan=false; controls.enableDamping=true; controls.dampingFactor=.08; controls.rotateSpeed=.9; controls.zoomSpeed=.8;
+  controls.autoRotate=!reduce; controls.autoRotateSpeed=1.6;
+  let tm=0; controls.addEventListener('start',()=>{clearTimeout(tm);controls.autoRotate=false});
+  controls.addEventListener('end',()=>{clearTimeout(tm);tm=setTimeout(()=>{controls.autoRotate=!reduce},3000)});
+  GL.focus={id:'',cam,controls,bg,t0:0,tc:0,closing:false,asp:0,d0:3,trap:document.activeElement};
+  document.body.classList.add('focus-open'); deck.style.overflowY='hidden';
+  bg.hidden=false; ui.hidden=false; requestAnimationFrame(()=>{bg.classList.add('on');ui.classList.add('on')});
+  setFocusModel(id); $('#fclose').focus({preventScroll:true}); kick();
+}
+function closeFocus(){const f=GL.focus; if(!f||f.closing) return; f.closing=true; f.tc=performance.now();
+  $('#fbg').classList.remove('on'); $('#focus').classList.remove('on'); kick()}
+function finishClose(){
+  const f=GL.focus; if(!f) return;
+  f.controls.dispose(); GL.items[f.id].pivot.scale.setScalar(1);
+  $('#fbg').hidden=true; $('#focus').hidden=true; GL.focus=null;
+  document.body.classList.remove('focus-open'); deck.style.overflowY='';
+  try{f.trap&&f.trap.focus({preventScroll:true})}catch(e){}
+  kick();
+}
+$('#fclose').addEventListener('click',closeFocus);
+$('#freset').addEventListener('click',()=>{if(GL.focus&&!GL.focus.closing){GL.focus.t0=performance.now();resetFocusView()}});
+$('#fchips').innerHTML=ORDER.map(id=>'<button type="button" data-id="'+id+'">'+MODEL_CFG[id].fa+'</button>').join('');
+$('#fchips').addEventListener('click',e=>{const b=e.target.closest('button'); if(b&&GL.focus&&!GL.focus.closing&&GL.items[b.dataset.id]) setFocusModel(b.dataset.id)});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&GL.focus) closeFocus()});
+
+/* ───── تعامل روی هر فلفل: لرزش ظریف با نشانگر، چرخاندن با کشیدن، لمس/کلیک = نمای بزرگ ───── */
+const ZOOM_SVG='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2H14v4.5M6.5 14H2V9.5M14 2 9.5 6.5M2 14l4.5-4.5"/></svg>';
+$$('#stage .gl').forEach(w=>{
+  const id=w.closest('.model').dataset.model; let p=null;
+  w.setAttribute('role','button'); w.tabIndex=0; w.setAttribute('aria-label','نمایش بزرگ '+MODEL_CFG[id].fa);
+  w.insertAdjacentHTML('beforeend','<span class="gl-zoom" aria-hidden="true">'+ZOOM_SVG+'</span>');
+  const act=()=>{
+    if(w.dataset.state==='ready') openFocus(id);
+    else if(w.dataset.state==='error') retryModel(id);
+  };
+  w.addEventListener('pointerdown',e=>{p={x:e.clientX,y:e.clientY,lx:e.clientX,t:performance.now(),mv:0}; const it=GL.items[id]; if(it){it.drag=true;it.vel=0}});
+  w.addEventListener('pointermove',e=>{
+    const it=GL.items[id]; if(!it) return; const rc=w.getBoundingClientRect();
+    it.ttx=((e.clientX-rc.left)/rc.width-.5)*2; it.tty=((e.clientY-rc.top)/rc.height-.5)*2;
+    if(p){const dx=e.clientX-p.lx; p.lx=e.clientX; p.mv=Math.max(p.mv,Math.hypot(e.clientX-p.x,e.clientY-p.y)); it.yaw+=dx*.012; it.last=dx}
+  });
+  const end=(e,tap)=>{const it=GL.items[id];
+    if(it){it.drag=false; if(p&&p.mv>=8) it.vel=(it.last||0)*.006; if(e.pointerType!=='mouse') it.ttx=it.tty=0}
+    if(tap&&p&&p.mv<8&&performance.now()-p.t<600) act(); p=null};
+  w.addEventListener('pointerup',e=>end(e,true));
+  w.addEventListener('pointercancel',e=>end(e,false));
+  w.addEventListener('pointerleave',()=>{const it=GL.items[id]; if(it){it.ttx=it.tty=0}});
+  w.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act()}});
+});
+
+/* ───── ساخت صحنه‌ها ───── */
+function buildEnv(){
+  const {T,RoomEnvironment}=GL.lib, pm=new T.PMREMGenerator(GL.r);
+  if(GL.rt) GL.rt.dispose();
+  GL.rt=pm.fromScene(new RoomEnvironment(),.04); pm.dispose();
+  for(const id of ORDER){const it=GL.items[id]; if(it) it.scene.environment=GL.rt.texture}
+}
+function buildItem(id,wrap,gltf){
+  const T=GL.lib.T, cfg=MODEL_CFG[id], scene=new T.Scene();
+  scene.environment=GL.rt.texture; scene.environmentIntensity=.7;
+  const key=new T.DirectionalLight(0xfff1de,2); key.position.set(2.6,4.2,3.2);
+  Object.assign(key.shadow.camera,{left:-2.6,right:2.6,top:2.6,bottom:-2.6,near:.5,far:14});
+  key.shadow.camera.updateProjectionMatrix(); key.shadow.bias=-.0005; key.shadow.normalBias=.03;
+  const rim=new T.DirectionalLight(0x9ec5ff,1); rim.position.set(-3,2,-3.5);
+  scene.add(key,rim,new T.HemisphereLight(0xfff4e6,0x6a5a48,.6));
+  const model=gltf.scene, box=new T.Box3().setFromObject(model), sz=box.getSize(new T.Vector3());
+  model.scale.multiplyScalar(2/Math.max(sz.x,sz.y,sz.z));
+  box.setFromObject(model); model.position.sub(box.getCenter(new T.Vector3()));
+  const aniso=Math.min(8,GL.r.capabilities.getMaxAnisotropy());
+  model.traverse(o=>{ if(!o.isMesh) return; o.castShadow=true;
+    const ms=Array.isArray(o.material)?o.material:[o.material];
+    ms.forEach(m=>{ if(m.isMeshStandardMaterial){ m.metalness=Math.min(m.metalness,.15); m.roughness=Math.max(m.roughness,.42); if(m.map) m.map.anisotropy=aniso } });
+  });
+  const pivot=new T.Group(); pivot.rotation.order='YXZ'; pivot.add(model); scene.add(pivot); pivot.updateMatrixWorld(true);
+  const v=new T.Vector3(); let hr=.01,hh=.01;
+  pivot.traverse(o=>{ if(!o.isMesh) return; const a=o.geometry.attributes.position;
+    for(let i=0;i<a.count;i++){v.fromBufferAttribute(a,i).applyMatrix4(o.matrixWorld); hr=Math.max(hr,Math.hypot(v.x,v.z)); hh=Math.max(hh,Math.abs(v.y))} });
+  const ground=new T.Mesh(new T.PlaneGeometry(9,9),new T.ShadowMaterial({opacity:.26}));
+  ground.rotation.x=-Math.PI/2; ground.position.y=-(hh+.3); ground.receiveShadow=true; scene.add(ground);
+  GL.items[id]={id,wrap,scene,pivot,key,ground,hr,hh,cam:new T.PerspectiveCamera(32,1,.1,60),asp:0,
+    yaw:cfg.yaw,vel:0,last:0,drag:false,tx:0,ty:0,ttx:0,tty:0,phase:Math.random()*6.28};
+}
+
+const s3=$('#s3'); let relT=0;
+new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)) prefetch()},{root:deck,rootMargin:'80% 0px 80% 0px'}).observe(s3);   /* دریافت شبکه: وقتی اسلاید ۳ نزدیک است */
+new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)) activate()},{root:deck,rootMargin:'10% 0px 10% 0px'}).observe(s3);   /* ساخت مدل: درست پیش از رسیدن */
+new IntersectionObserver(es=>{GL.visible=es.some(e=>e.isIntersecting);kick()},{root:deck,threshold:.08}).observe(s3);
+new IntersectionObserver(es=>{clearTimeout(relT); if(!es.some(e=>e.isIntersecting)) relT=setTimeout(release,4000)},{root:deck,rootMargin:'250% 0px 250% 0px'}).observe(s3);   /* خروج دور از اسلاید: آزادسازی GPU */
+try{const g=sessionStorage.getItem('rp-go'); if(g){sessionStorage.removeItem('rp-go'); addEventListener('load',()=>requestAnimationFrame(()=>deck.scrollTo({top:(+g-1)*deck.clientHeight,behavior:'auto'})),{once:true})}}catch(e){}
+})();
+</script>
+</body>
+</html>
