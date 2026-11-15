@@ -1,0 +1,33 @@
+name: Extract Carolina Reaper site
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/extract-site.yml"
+      - "carolina-reaper-site.zip"
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Extract site files and remove archive
+        run: |
+          test -f carolina-reaper-site.zip
+          mkdir -p models
+          unzip -o carolina-reaper-site.zip -d .
+          test -s index.html
+          test -s models/naga.glb
+          test -s models/habanero.glb
+          test -s models/reaper.glb
+          rm carolina-reaper-site.zip
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html models/naga.glb models/habanero.glb models/reaper.glb carolina-reaper-site.zip
+          git commit -m "Extract Carolina Reaper presentation files"
+          git push origin HEAD:main
