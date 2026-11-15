@@ -607,7 +607,7 @@ const MODEL_CFG={
 };
 const ORDER=['naga','habanero','reaper'];
 /* پله‌های کیفیت: وضوح پیکسلی، اندازه‌ی نقشه‌ی سایه (۰ = بدون سایه‌ی واقعی)، سقف فریم */
-const TIERS=[{dpr:2,sh:1024,fps:60},{dpr:1.5,sh:512,fps:60},{dpr:1,sh:0,fps:30}];
+const TIERS=[{dpr:2,sh:0,fps:60},{dpr:1.5,sh:0,fps:60},{dpr:1,sh:0,fps:30}];
 const mem=navigator.deviceMemory||4, cores=navigator.hardwareConcurrency||4, coarse=matchMedia('(pointer:coarse)').matches;
 const GL={state:'idle',tries:0,lib:null,items:{},visible:false,raf:0,r:null,rt:null,focus:null,last:0,ema:16,n:0,lost:false,
   ti:(mem<=2||cores<=2)?2:((coarse&&(mem<=4||cores<=6))?1:0)};
@@ -692,7 +692,7 @@ function ensureRenderer(){
   try{
     const c=$('#glc'); r=new T.WebGLRenderer({canvas:c,antialias:GL.ti<2,alpha:true});
     r.setClearColor(0,0); r.autoClear=false; r.toneMapping=T.NeutralToneMapping||T.ACESFilmicToneMapping; r.toneMappingExposure=1;
-    r.shadowMap.enabled=true; r.shadowMap.type=T.PCFSoftShadowMap;
+    r.shadowMap.enabled=false;
     c.addEventListener('webglcontextlost',e=>{e.preventDefault();GL.lost=true});
     c.addEventListener('webglcontextrestored',()=>{GL.lost=false;buildEnv();applyQ();kick()});
   }catch(e){console.warn('WebGL unavailable',e); const err=new Error('nogl'); err.nogl=1; throw err}
@@ -867,7 +867,7 @@ function buildEnv(){
 function buildItem(id,wrap,gltf){
   const T=GL.lib.T, cfg=MODEL_CFG[id], scene=new T.Scene();
   scene.environment=GL.rt.texture; scene.environmentIntensity=.7;
-  const key=new T.DirectionalLight(0xfff1de,2); key.position.set(2.6,4.2,3.2);
+  const key=new T.DirectionalLight(0xfff1de,2); key.position.set(2.6,4.2,3.2); key.castShadow=false;
   Object.assign(key.shadow.camera,{left:-2.6,right:2.6,top:2.6,bottom:-2.6,near:.5,far:14});
   key.shadow.camera.updateProjectionMatrix(); key.shadow.bias=-.0005; key.shadow.normalBias=.03;
   const rim=new T.DirectionalLight(0x9ec5ff,1); rim.position.set(-3,2,-3.5);
@@ -885,7 +885,7 @@ function buildItem(id,wrap,gltf){
   pivot.traverse(o=>{ if(!o.isMesh) return; const a=o.geometry.attributes.position;
     for(let i=0;i<a.count;i++){v.fromBufferAttribute(a,i).applyMatrix4(o.matrixWorld); hr=Math.max(hr,Math.hypot(v.x,v.z)); hh=Math.max(hh,Math.abs(v.y))} });
   const ground=new T.Mesh(new T.PlaneGeometry(9,9),new T.ShadowMaterial({opacity:.26}));
-  ground.rotation.x=-Math.PI/2; ground.position.y=-(hh+.3); ground.receiveShadow=true; scene.add(ground);
+  ground.rotation.x=-Math.PI/2; ground.position.y=-(hh+.3); ground.receiveShadow=false; ground.visible=false; scene.add(ground);
   GL.items[id]={id,wrap,scene,pivot,key,ground,hr,hh,cam:new T.PerspectiveCamera(32,1,.1,60),asp:0,
     yaw:cfg.yaw,vel:0,last:0,drag:false,tx:0,ty:0,ttx:0,tty:0,phase:Math.random()*6.28};
 }
